@@ -154,40 +154,31 @@
                         <a href="#"><i class="zmdi zmdi-close"></i></a>
                     </div>
                     <div class="shp__cart__wrap">
+                      @for (item of items; track $index) {
                         <div class="shp__single__product">
                             <div class="shp__pro__thumb">
                                 <a href="#">
-                                    <img src="../../assets/images/product/sm-img/1.jpg" alt="product images">
+                                    <img src="{{ item.imageUrl }}" alt="product images">
                                 </a>
                             </div>
                             <div class="shp__pro__details">
-                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$105.00</span>
+                                <h2><a href="product-details.html">{{ item.name }}</a></h2>
+                                <div class="quantity-control">
+                                  <button (click)="decreaseQuantity(item)" style="background-color: #5d542b; border: none; width: 30px; border-radius: 5px; margin-right: 10px; color: white;">-</button>
+                                  <span class="quantity">QTY: {{ item.quantity }}</span>
+                                  <button (click)="increaseQuantity(item)" style="background-color: #5d542b; border: none; width: 30px; border-radius: 5px; margin-left: 10px; color: white;">+</button>
+                                </div>
+                                <span class="shp__price">${{ item.price * item.quantity }}</span>
                             </div>
                             <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                              <a href="#" (click)="removeItem(item); $event.preventDefault();" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
                             </div>
                         </div>
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="../../assets/images/product/sm-img/2.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">Brone Candle</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$25.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
+                      }
                     </div>
                     <ul class="shoping__total">
                         <li class="subtotal">Subtotal:</li>
-                        <li class="total__price">$130.00</li>
+                        <li class="total__price">${{ totalPrice }}</li>
                     </ul>
                     <ul class="shopping__btn">
                         <li><a href="cart.html">View Cart</a></li>
