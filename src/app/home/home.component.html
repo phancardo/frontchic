@@ -37,7 +37,7 @@
     left: 20%; /* Positionner à gauche */
     transform: translateY(-50%);
     padding: 20px;
-    }
+  }
 
   .infos-products h3 {
     margin-top: 0;
@@ -100,71 +100,87 @@
     transition: opacity 0.3s ease;
   }
   .pro__thumb {
-  width: 270px; /* Largeur fixe pour le conteneur */
-  height: 180px; /* Hauteur fixe pour le conteneur */
-  overflow: hidden; /* Pour cacher toute partie de l'image qui dépasse du conteneur */
-  position: relative; /* Position relative pour gérer le contenu absolu */
-  background-color: #fff; /* Couleur de fond blanche */
-}
+    width: 270px; /* Largeur fixe pour le conteneur */
+    height: 180px; /* Hauteur fixe pour le conteneur */
+    overflow: hidden; /* Pour cacher toute partie de l'image qui dépasse du conteneur */
+    position: relative; /* Position relative pour gérer le contenu absolu */
+    background-color: #fff; /* Couleur de fond blanche */
+  }
 
-.product_img {
-  width: 100%; /* Remplir entièrement le conteneur */
-  height: 100%; /* Remplir entièrement le conteneur */
-  object-fit: contain; /* Redimensionner l'image pour couvrir entièrement le conteneur */
-  position: absolute; /* Position absolue pour que l'image remplisse correctement */
-  top: 0; /* Aligner en haut du conteneur */
-  left: 0; /* Aligner à gauche du conteneur */
-}
-
+  .product_img {
+    width: 100%; /* Remplir entièrement le conteneur */
+    height: 100%; /* Remplir entièrement le conteneur */
+    object-fit: contain; /* Redimensionner l'image pour couvrir entièrement le conteneur */
+    position: absolute; /* Position absolue pour que l'image remplisse correctement */
+    top: 0; /* Aligner en haut du conteneur */
+    left: 0; /* Aligner à gauche du conteneur */
+  }
 </style>
 
 <div class="container">
-  <h2>Product of the day</h2>
+  <div *ngIf="currentUser">
+    <h3>Bienvenue, {{ currentUser }} !</h3>
+  </div>
+  <div *ngIf="!currentUser"></div>
+  <h2>Produits du jours</h2>
+
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-          <div class="item active">
-              <img src="../../assets/images/slider/bg/1.jpg" style="height: 500px;" alt="Slide 1">
-              <div class="overlay"></div>
-              <div class="infos-products">
-                <h3>Phial de Galadriel</h3>
-                <p>$250.0</p>
-              </div>
-          </div>
-          <div class="item">
-              <img src="../../assets/images/slider/bg/2.jpg" style="height: 500px;" alt="Slide 2">
-              <div class="overlay"></div>
-              <div class="infos-products">
-                <h3>Cape d'invisibilité</h3>
-                <p>$300.0</p>
-              </div>
-          </div>
-          <div class="item">
-              <img src="../../assets/images/slider/bg/3.jpg" style="height: 500px;" alt="Slide 3">
-              <div class="overlay"></div>
-              <div class="infos-products">
-                <h3>Cotte de Mithril</h3>
-                <p>$500.0</p>
-              </div>
-          </div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img
+          src="../../assets/images/slider/bg/1.jpg"
+          style="height: 500px"
+          alt="Slide 1"
+        />
+        <div class="overlay"></div>
+        <div class="infos-products">
+          <h3>Phial de Galadriel</h3>
+          <p>$250.0</p>
+        </div>
       </div>
+      <div class="item">
+        <img
+          src="../../assets/images/slider/bg/2.jpg"
+          style="height: 500px"
+          alt="Slide 2"
+        />
+        <div class="overlay"></div>
+        <div class="infos-products">
+          <h3>Cape d'invisibilité</h3>
+          <p>$300.0</p>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="../../assets/images/slider/bg/3.jpg"
+          style="height: 500px"
+          alt="Slide 3"
+        />
+        <div class="overlay"></div>
+        <div class="infos-products">
+          <h3>Cotte de Mithril</h3>
+          <p>$500.0</p>
+        </div>
+      </div>
+    </div>
 
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="zmdi zmdi-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="zmdi zmdi-chevron-right"></span>
-          <span class="sr-only">Next</span>
-      </a>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="zmdi zmdi-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="zmdi zmdi-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </div>
 <!-- Section Product -->
@@ -226,34 +242,59 @@
             </div>
           </div>
           <div class="tab-content another-product-style custom-style">
-            <div class="row" style="width: 100%; margin: 0;">
+            <div class="row" style="width: 100%; margin: 0">
               @for (product of products; track product.id) {
               <div class="col-md-4">
-                <div class="product" style="width: 270px;">
+                <div class="product" style="width: 270px">
                   <div class="product__inner">
                     <div class="pro__thumb">
                       <a href="#">
-                        <img src="{{product.imageUrl}}" alt="product images" class="product_img">
+                        <img
+                          src="{{ product.imageUrl }}"
+                          alt="product images"
+                          class="product_img"
+                        />
                       </a>
                     </div>
                     <div class="product__hover__info">
                       <ul class="product__action">
-                        <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                        <li><a title="Add TO Cart" (click)="addToCart(product)"><span class="ti-shopping-cart"></span></a></li>
-                        <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                        <li>
+                          <a
+                            data-toggle="modal"
+                            data-target="#productModal"
+                            title="Quick View"
+                            class="quick-view modal-view detail-link"
+                            href="#"
+                            ><span class="ti-plus"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a title="Add TO Cart" (click)="addToCart(product)"
+                            ><span class="ti-shopping-cart"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a title="Wishlist" href="wishlist.html"
+                            ><span class="ti-heart"></span
+                          ></a>
+                        </li>
                       </ul>
                     </div>
                   </div>
                   <div class="product__details">
-                    <h2><a href="product-details.html">{{product.name}}</a></h2>
+                    <h2>
+                      <a href="product-details.html">{{ product.name }}</a>
+                    </h2>
                     <ul class="product__price">
-                      <li class="old__price">${{product.oldPrice}}</li>
-                      <li class="new__price" style="color: #2b1e12;">${{product.price}}</li>
+                      <li class="old__price">${{ product.oldPrice }}</li>
+                      <li class="new__price" style="color: #2b1e12">
+                        ${{ product.price }}
+                      </li>
                     </ul>
                   </div>
                 </div>
               </div>
-            }
+              }
             </div>
           </div>
         </div>
@@ -261,4 +302,4 @@
     </div>
   </div>
 </section>
-  <!-- End Section Product -->
+<!-- End Section Product -->

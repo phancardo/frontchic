@@ -4,29 +4,29 @@
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-}
+  }
 
-form {
+  .form {
     background-color: #fff;
     max-width: 400px;
     margin: 100px auto;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-}
+  }
 
-input[type="submit"] {
+  input[type="submit"] {
     width: 100%;
     background-color: #5d542b;
     color: #fff;
@@ -39,55 +39,55 @@ input[type="submit"] {
     line-height: 0.5; /* Adjust line height for vertical alignment */
     font-size: 16px; /* Adjust font size as needed */
     box-sizing: border-box;
-}
+  }
 
-.tabs__checkbox {
+  .tabs__checkbox {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+  }
 
-.tabs__checkbox input[type="checkbox"] {
+  .tabs__checkbox input[type="checkbox"] {
     margin: 0;
     height: 18px; /* Adjust checkbox size */
     width: 18px; /* Adjust checkbox size */
     vertical-align: middle;
-}
+  }
 
-.tabs__checkbox span {
+  .tabs__checkbox span {
     display: flex;
     align-items: center;
-}
+  }
 
-.htc__login__btn {
+  .htc__login__btn {
     text-align: center;
-}
+  }
 
-.htc__social__connect {
+  .htc__social__connect {
     text-align: center;
-}
+  }
 
-.htc__social__connect h6 {
+  .htc__social__connect h6 {
     margin-bottom: 10px;
-}
+  }
 
-.htc__soaial__list {
+  .htc__soaial__list {
     list-style: none;
     padding: 0;
     margin: 0;
-}
+  }
 
-.htc__soaial__list li {
+  .htc__soaial__list li {
     display: inline-block;
     margin-right: 10px;
-}
+  }
 
-span {
+  span {
     padding: 10px;
-}
+  }
 
-.htc__soaial__list li a {
+  .htc__soaial__list li a {
     display: block;
     width: 40px;
     height: 40px;
@@ -97,34 +97,17 @@ span {
     color: #fff;
     border-radius: 50%;
     font-size: 18px;
-}
+  }
 
-.forget a {
+  .forget a {
     text-decoration: none;
     color: #6e6c34;
-}
-
-
+  }
 </style>
-<form class="login" method="post">
-  <h2 style="color: #6e6c34; text-align: center;">Login</h2>
-  <input type="text" placeholder="User Name*">
-  <input type="password" placeholder="Password*">
-  <div class="tabs__checkbox">
-
-      <span><input type="checkbox"> Remember me</span>
-      <span class="forget"><a href="#">Create an account?</a></span>
-  </div>
-
-  <input (onclick)="onLogin()" type="submit" value="Valider">
-  <div class="htc__social__connect">
-    <br>
-      <h6>Or Login With</h6>
-      <ul class="htc__soaial__list">
-          <li><a class="bg--twitter" href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-          <li><a class="bg--instagram" href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-          <li><a class="bg--facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-          <li><a class="bg--googleplus" href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-      </ul>
-  </div>
-</form>
+<div class="form">
+    <h2 style="color: #6e6c34; text-align: center;">Login</h2>
+    <input type="text" placeholder="User Name*" #usernameInput>
+    <input type="password" placeholder="Password*" #passwordInput>  
+    <button (click)="linkhome(usernameInput.value, passwordInput.value)">Valider</button>
+</div>
+  

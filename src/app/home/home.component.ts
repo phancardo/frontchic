@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
+import { CommonModule } from '@angular/common';
 interface Product {
   id: number;
   name: string;
@@ -12,13 +13,19 @@ interface Product {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  currentUser: string | null = '';
   constructor(private router: Router, private cartService: CartService) {}
 
+  ngOnInit() {
+    // Récupérer les informations du localStorage
+    this.currentUser = localStorage.getItem('currentUser');
+    console.log('initier');
+  }
   register(){
     this.router.navigate(['/register']);
   }

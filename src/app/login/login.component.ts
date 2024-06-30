@@ -1,30 +1,35 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+  imports: [FormsModule]
 })
 export class LoginComponent {
-  loginObj: any = {
-    userName: '',
-    password:''
-  }
+  @ViewChild('usernameInput') usernameInput!: ElementRef;
+  @ViewChild('passwordInput') passwordInput!: ElementRef;
 
   constructor(private router: Router){
 
   }
 
-  onLogin(){
-    if(this.loginObj.userName=="admin" && this.loginObj.password=="334455")
-    {
-      this.router.navigateByUrl('/products')
+  linkhome(username: string, password: string){
+    console.log('home perso');
+    console.log('Nom d\'utilisateur:', username);
+    console.log('Mot de passe:', password);
+    if (username === 'frondon' && password === '1234') {
+      username = "Frondon sacquet";
+      localStorage.setItem('currentUser', username);
+      //console.log(username);
+      //window.location.reload();
+      this.router.navigate(['/home']);
+    } else {
+      console.error('Nom d\'utilisateur ou mot de passe incorrect');
     }
-    else{
-      alert('Wrong Credentials!')
-    }
+    
   }
 }
