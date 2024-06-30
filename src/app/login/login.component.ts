@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
   @ViewChild('usernameInput') usernameInput!: ElementRef;
   @ViewChild('passwordInput') passwordInput!: ElementRef;
+  qttstock : string | null = '';
 
   constructor(private router: Router){
 
@@ -24,6 +25,7 @@ export class LoginComponent {
     if (username === 'frondon' && password === '1234') {
       username = "Frondon sacquet";
       localStorage.setItem('currentUser', username);
+      //localStorage.setItem('currentUser', qttStock);
       //console.log(username);
       //window.location.reload();
       this.router.navigate(['/home']);
