@@ -115,6 +115,27 @@
     top: 0; /* Aligner en haut du conteneur */
     left: 0; /* Aligner à gauche du conteneur */
   }
+  .panier{
+    background-color: #bba88d;
+        padding: 7px;
+        border: none;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .panier:hover {
+        background-color: #ffd6a7;
+      }
+      
+      .panier:active {
+        background-color: #b98233;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
 </style>
 
 <div class="container">
@@ -140,10 +161,12 @@
           style="height: 500px"
           alt="Slide 1"
         />
+
         <div class="overlay"></div>
         <div class="infos-products">
           <h3>Phial de Galadriel</h3>
           <p>$250.0</p>
+          <button class="panier">Ajouter au panier</button>
         </div>
       </div>
       <div class="item">
@@ -156,6 +179,8 @@
         <div class="infos-products">
           <h3>Cape d'invisibilité</h3>
           <p>$300.0</p>
+          <button class="panier">Ajouter au panier</button>
+
         </div>
       </div>
       <div class="item">
@@ -168,6 +193,8 @@
         <div class="infos-products">
           <h3>Cotte de Mithril</h3>
           <p>$500.0</p>
+          <button class="panier">Ajouter au panier</button>
+
         </div>
       </div>
     </div>
@@ -238,7 +265,7 @@
               </li>
             </ul>
             <div class="all-product-btn">
-              <a href="#">tous</a>
+              <a href="#">Tous</a>
             </div>
           </div>
           <div class="tab-content another-product-style custom-style">
@@ -302,4 +329,3 @@
     </div>
   </div>
 </section>
-
